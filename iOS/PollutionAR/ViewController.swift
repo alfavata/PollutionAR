@@ -7,73 +7,75 @@
 //
 
 import UIKit
-import SpriteKit
+import SceneKit
 import ARKit
+import CoreLocation
+import ARCL
 
-class ViewController: UIViewController, ARSKViewDelegate {
+class ViewController: UIViewController {
+
+    let sceneLocationView = SceneLocationView()
+    let fetcher = DataFetcher()
     
     @IBOutlet var sceneView: ARSKView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Set the view's delegate
-        sceneView.delegate = self
-        
-        // Show statistics such as fps and node count
-        sceneView.showsFPS = true
-        sceneView.showsNodeCount = true
-        
-        // Load the SKScene from 'Scene.sks'
-        if let scene = SKScene(fileNamed: "Scene") {
-            sceneView.presentScene(scene)
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
 
-        // Run the view's session
-        sceneView.session.run(configuration)
+        sceneLocationView.locationDelegate = self
+        sceneLocationView.run()
+        view.addSubview(sceneLocationView)
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Pause the view's session
-        sceneView.session.pause()
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        sceneLocationView.frame = view.bounds
     }
+}
+
+extension ViewController: ARSKViewDelegate {
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
+}
+
+extension ViewController: SceneLocationViewDelegate {
+    func sceneLocationViewDidAddSceneLocationEstimate(sceneLocationView: SceneLocationView, position: SCNVector3, location: CLLocation) {
+//        fetcher.fetchData(for: location) {
+//            guard let value = $0 else { return }
+//            for _ in 0 ..< value {
+//                let randomDeltaLat = (Double(arc4random_uniform(UInt32.max)/UInt32.max) * 10.0 - 5.0).metersToLatitude()
+//                let randomDeltaLng = (Double(arc4random_uniform(UInt32.max)/UInt32.max) * 10.0 - 5.0).metersToLongitude()
+//                let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude + randomDeltaLat,
+//                                                        longitude: location.coordinate.longitude + randomDeltaLng)
+//                let location = CLLocation(coordinate: coordinate, altitude: location.altitude - 1.5)
+//                let   node = ParticleNode(location: location, value: value)
+//                sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: node)
+//            }
+//        }
     }
-    
-    // MARK: - ARSKViewDelegate
-    
-    func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
-        // Create and configure a node for the anchor added to the view's session.
-        let labelNode = SKLabelNode(text: "👾")
-        labelNode.horizontalAlignmentMode = .center
-        labelNode.verticalAlignmentMode = .center
-        return labelNode;
+
+    func sceneLocationViewDidRemoveSceneLocationEstimate(sceneLocationView: SceneLocationView, position: SCNVector3, location: CLLocation) {
+
     }
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
-        
+
+    func sceneLocationViewDidConfirmLocationOfNode(sceneLocationView: SceneLocationView, node: LocationNode) {
+
     }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
+
+    func sceneLocationViewDidSetupSceneNode(sceneLocationView: SceneLocationView, sceneNode: SCNNode) {
+
     }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
+
+    func sceneLocationViewDidUpdateLocationAndScaleOfLocationNode(sceneLocationView: SceneLocationView, locationNode: LocationNode) {
+
+    }
+}
+
+private extension Double {
+    func metersToLatitude() -> Double {
+        return self / (6360500.0)
+    }
+
+    func metersToLongitude() -> Double {
+        return self / (5602900.0)
     }
 }

@@ -14,6 +14,11 @@
 		0C26DBE1208DDFFE00F0E454 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C26DBDF208DDFFE00F0E454 /* Main.storyboard */; };
 		0C26DBE3208DDFFF00F0E454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C26DBE2208DDFFF00F0E454 /* Assets.xcassets */; };
 		0C26DBE6208DDFFF00F0E454 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C26DBE4208DDFFF00F0E454 /* LaunchScreen.storyboard */; };
+		0C731BED208DF01D00682D89 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C731BEC208DF01D00682D89 /* Model.swift */; };
+		0C731BEF208DF0C500682D89 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C731BEE208DF0C500682D89 /* DataFetcher.swift */; };
+		0C731BF1208DF8CC00682D89 /* ParticleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C731BF0208DF8CC00682D89 /* ParticleNode.swift */; };
+		0C731BF4208E1E0300682D89 /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C731BF2208E1E0300682D89 /* smoke.png */; };
+		0C731BF5208E1E0300682D89 /* Pollution.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 0C731BF3208E1E0300682D89 /* Pollution.scnp */; };
 		3B7E62BD9831CF6335CFB969 /* Pods_PollutionAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80339D27309E411E56D8BE16 /* Pods_PollutionAR.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +32,11 @@
 		0C26DBE2208DDFFF00F0E454 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C26DBE5208DDFFF00F0E454 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C26DBE7208DDFFF00F0E454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C731BEC208DF01D00682D89 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0C731BEE208DF0C500682D89 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		0C731BF0208DF8CC00682D89 /* ParticleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleNode.swift; sourceTree = "<group>"; };
+		0C731BF2208E1E0300682D89 /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
+		0C731BF3208E1E0300682D89 /* Pollution.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = Pollution.scnp; sourceTree = "<group>"; };
 		7EF516F50A8D37E619962A78 /* Pods-PollutionAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollutionAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-PollutionAR/Pods-PollutionAR.release.xcconfig"; sourceTree = "<group>"; };
 		80339D27309E411E56D8BE16 /* Pods_PollutionAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PollutionAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F8A5D367BA5DCCFA2FE900 /* Pods-PollutionAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PollutionAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PollutionAR/Pods-PollutionAR.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +83,11 @@
 				0C26DBE2208DDFFF00F0E454 /* Assets.xcassets */,
 				0C26DBE4208DDFFF00F0E454 /* LaunchScreen.storyboard */,
 				0C26DBE7208DDFFF00F0E454 /* Info.plist */,
+				0C731BEC208DF01D00682D89 /* Model.swift */,
+				0C731BEE208DF0C500682D89 /* DataFetcher.swift */,
+				0C731BF0208DF8CC00682D89 /* ParticleNode.swift */,
+				0C731BF2208E1E0300682D89 /* smoke.png */,
+				0C731BF3208E1E0300682D89 /* Pollution.scnp */,
 			);
 			path = PollutionAR;
 			sourceTree = "<group>";
@@ -157,7 +172,9 @@
 				0C26DBDA208DDFFE00F0E454 /* Scene.sks in Resources */,
 				0C26DBE6208DDFFF00F0E454 /* LaunchScreen.storyboard in Resources */,
 				0C26DBE3208DDFFF00F0E454 /* Assets.xcassets in Resources */,
+				0C731BF5208E1E0300682D89 /* Pollution.scnp in Resources */,
 				0C26DBE1208DDFFE00F0E454 /* Main.storyboard in Resources */,
+				0C731BF4208E1E0300682D89 /* smoke.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,9 +224,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C731BEF208DF0C500682D89 /* DataFetcher.swift in Sources */,
 				0C26DBDE208DDFFE00F0E454 /* ViewController.swift in Sources */,
 				0C26DBDC208DDFFE00F0E454 /* Scene.swift in Sources */,
 				0C26DBD8208DDFFE00F0E454 /* AppDelegate.swift in Sources */,
+				0C731BED208DF01D00682D89 /* Model.swift in Sources */,
+				0C731BF1208DF8CC00682D89 /* ParticleNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,7 +377,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 998P9U5NGJ;
 				INFOPLIST_FILE = PollutionAR/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.theguardian.PollutionAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -373,7 +396,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 998P9U5NGJ;
 				INFOPLIST_FILE = PollutionAR/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.theguardian.PollutionAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
