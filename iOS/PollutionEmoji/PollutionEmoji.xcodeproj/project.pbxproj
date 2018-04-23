@@ -14,8 +14,8 @@
 		0C731C4E208E28BA00682D89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C731C4C208E28BA00682D89 /* Main.storyboard */; };
 		0C731C50208E28BB00682D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C731C4F208E28BB00682D89 /* Assets.xcassets */; };
 		0C731C53208E28BB00682D89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C731C51208E28BB00682D89 /* LaunchScreen.storyboard */; };
-		0C731C5B208E29BA00682D89 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C731C5A208E29BA00682D89 /* DataFetcher.swift */; };
-		0C731C5D208E2C6100682D89 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C731C5C208E2C6100682D89 /* Model.swift */; };
+		0C867E5B208E3CFA0050D408 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C867E59208E3CFA0050D408 /* DataFetcher.swift */; };
+		0C867E5C208E3CFA0050D408 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C867E5A208E3CFA0050D408 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +28,8 @@
 		0C731C4F208E28BB00682D89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C731C52208E28BB00682D89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C731C54208E28BB00682D89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0C731C5A208E29BA00682D89 /* DataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataFetcher.swift; path = ../../iOS/PollutionAR/DataFetcher.swift; sourceTree = "<group>"; };
-		0C731C5C208E2C6100682D89 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = ../../iOS/PollutionAR/Model.swift; sourceTree = "<group>"; };
+		0C867E59208E3CFA0050D408 /* DataFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataFetcher.swift; path = ../../PollutionAR/DataFetcher.swift; sourceTree = "<group>"; };
+		0C867E5A208E3CFA0050D408 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = ../../PollutionAR/Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +66,8 @@
 				0C731C46208E28BA00682D89 /* Scene.sks */,
 				0C731C48208E28BA00682D89 /* Scene.swift */,
 				0C731C4A208E28BA00682D89 /* ViewController.swift */,
-				0C731C5A208E29BA00682D89 /* DataFetcher.swift */,
-				0C731C5C208E2C6100682D89 /* Model.swift */,
+				0C867E59208E3CFA0050D408 /* DataFetcher.swift */,
+				0C867E5A208E3CFA0050D408 /* Model.swift */,
 				0C731C4C208E28BA00682D89 /* Main.storyboard */,
 				0C731C4F208E28BB00682D89 /* Assets.xcassets */,
 				0C731C51208E28BB00682D89 /* LaunchScreen.storyboard */,
@@ -148,11 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C731C5D208E2C6100682D89 /* Model.swift in Sources */,
+				0C867E5C208E3CFA0050D408 /* Model.swift in Sources */,
 				0C731C4B208E28BA00682D89 /* ViewController.swift in Sources */,
 				0C731C49208E28BA00682D89 /* Scene.swift in Sources */,
 				0C731C45208E28BA00682D89 /* AppDelegate.swift in Sources */,
-				0C731C5B208E29BA00682D89 /* DataFetcher.swift in Sources */,
+				0C867E5B208E3CFA0050D408 /* DataFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
