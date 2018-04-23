@@ -39,6 +39,13 @@ class ViewController: UIViewController, ARSKViewDelegate {
         if let scene = SKScene(fileNamed: "Scene") {
             sceneView.presentScene(scene)
         }
+
+        for i in 1...10 {
+            let edge: CGFloat = 30.0
+            let label = UILabel(frame: CGRect(x: edge/2 + CGFloat(i) * edge, y: sceneView.frame.height - edge * 3/2, width: edge, height: edge))
+            label.text = i.emoji
+            sceneView.addSubview(label)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,31 +68,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
         guard let value = valueToConsume else { return nil }
         valueToConsume = nil
 
-        let emoji: String
-        switch value {
-        case 1:
-            emoji = "😍"
-        case 2:
-            emoji = "🤩"
-        case 3:
-            emoji = "😎"
-        case 4:
-            emoji = "😏"
-        case 5:
-            emoji = "🤨"
-        case 6:
-            emoji = "😷"
-        case 7:
-            emoji = "🤢"
-        case 8:
-            emoji = "🤮"
-        case 9:
-            emoji = "😵"
-        default:
-            emoji = "☠️"
-        }
-
-        let labelNode = SKLabelNode(text: emoji)
+        let labelNode = SKLabelNode(text: value.emoji)
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
         return labelNode
