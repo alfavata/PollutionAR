@@ -106,7 +106,6 @@
 				0C26DBD1208DDFFE00F0E454 /* Frameworks */,
 				0C26DBD2208DDFFE00F0E454 /* Resources */,
 				69A118051746A5BBCAAB47DB /* [CP] Embed Pods Frameworks */,
-				9DAAAD6D9C1AEB663521E9E9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,21 +198,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PollutionAR/Pods-PollutionAR-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9DAAAD6D9C1AEB663521E9E9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PollutionAR/Pods-PollutionAR-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
