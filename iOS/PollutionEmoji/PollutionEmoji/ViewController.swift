@@ -17,16 +17,15 @@ class ViewController: UIViewController, ARSKViewDelegate {
 
     let locator = CLLocationManager()
     let fetcher = DataFetcher()
-
-    var valueToConsume: Int?
-    var previousLocation: CLLocation?
+    var values = [(CLLocation, Int)]()
+    var anchorPositions = [CLLocation]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         locator.delegate = self
         locator.requestWhenInUseAuthorization()
-        locator.desiredAccuracy = 1
+        locator.desiredAccuracy = 0.1
         locator.startUpdatingLocation()
 
         // Set the view's delegate
@@ -65,8 +64,11 @@ class ViewController: UIViewController, ARSKViewDelegate {
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
         // Create and configure a node for the anchor added to the view's session.
 
-        guard let value = valueToConsume else { return nil }
-        valueToConsume = nil
+        guard let location = locator.location else { return nil }
+        guard !anchorPositions.contains(where: { $0.distance(from: location) < 1 }) else { return nil }
+        guard let (_, value) = values.min(by: { $0.0.distance(from: location) < $1.0.distance(from: location) }) else { return nil }
+
+        anchorPositions.append(location)
 
         let labelNode = SKLabelNode(text: value.emoji)
         labelNode.horizontalAlignmentMode = .center
@@ -79,12 +81,12 @@ extension ViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-//        if let distance = previousLocation?.distance(from: location), distance < 1 { return }
+        guard !values.contains(where: { $0.0.distance(from: location) < 5 }) else { return }
 
         fetcher.fetchData(for: location) { [weak self] in
             if let value = $0 {
-                self?.valueToConsume = value
-                self?.previousLocation = location
+                print("Appending \(value)")
+                self?.values.append((location, value))
             }
         }
     }
