@@ -14,19 +14,19 @@ extension Int {
         case 1:
             return "😍"
         case 2:
-            return "🤩"
+            return "😁"
         case 3:
-            return "😎"
+            return "🙂"
         case 4:
-            return "😏"
+            return "😐"
         case 5:
-            return "🤨"
+            return "😰"
         case 6:
             return "😷"
         case 7:
-            return "🤢"
-        case 8:
             return "🤮"
+        case 8:
+            return "🤬"
         case 9:
             return "😵"
         default:

@@ -18,7 +18,8 @@ class ViewController: UIViewController, ARSKViewDelegate {
     let locator = CLLocationManager()
     let fetcher = DataFetcher()
     var values = [(CLLocation, Int)]()
-    var anchorPositions = [CLLocation]()
+    var nodeLocations = [CLLocation]()
+    var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,24 +52,30 @@ class ViewController: UIViewController, ARSKViewDelegate {
         super.viewWillAppear(animated)
         let configuration = ARWorldTrackingConfiguration()
         sceneView.session.run(configuration)
+
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            (self?.sceneView.scene as? Scene)?.addAnchor()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
+
+        timer?.invalidate()
+        timer = nil
     }
 
     
     // MARK: - ARSKViewDelegate
     
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
-        // Create and configure a node for the anchor added to the view's session.
 
         guard let location = locator.location else { return nil }
-        guard !anchorPositions.contains(where: { $0.distance(from: location) < 1 }) else { return nil }
+        guard !nodeLocations.contains(where: { $0.distance(from: location) < 1.0 }) else { return nil }
         guard let (_, value) = values.min(by: { $0.0.distance(from: location) < $1.0.distance(from: location) }) else { return nil }
 
-        anchorPositions.append(location)
+        nodeLocations.append(location)
 
         let labelNode = SKLabelNode(text: value.emoji)
         labelNode.horizontalAlignmentMode = .center
