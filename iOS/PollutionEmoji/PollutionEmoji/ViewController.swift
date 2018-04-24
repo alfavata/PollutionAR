@@ -41,9 +41,12 @@ class ViewController: UIViewController, ARSKViewDelegate {
         }
 
         for i in 1...10 {
-            let edge: CGFloat = 30.0
+            let edge: CGFloat = 65.0
             let label = UILabel(frame: CGRect(x: edge/2 + CGFloat(i) * edge, y: sceneView.frame.height - edge * 3/2, width: edge, height: edge))
-            label.text = i.emoji
+
+            label.font = UIFont.systemFont(ofSize: 18)
+            label.textColor = .white
+            label.text = "\(i.emoji) = \(i)"
             sceneView.addSubview(label)
         }
     }
@@ -72,7 +75,7 @@ class ViewController: UIViewController, ARSKViewDelegate {
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
 
         guard let location = locator.location else { return nil }
-        guard !nodeLocations.contains(where: { $0.distance(from: location) < 1.0 }) else { return nil }
+        guard !nodeLocations.contains(where: { $0.distance(from: location) < 2.0 }) else { return nil }
         guard let (_, value) = values.min(by: { $0.0.distance(from: location) < $1.0.distance(from: location) }) else { return nil }
 
         nodeLocations.append(location)
@@ -88,7 +91,7 @@ extension ViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        guard !values.contains(where: { $0.0.distance(from: location) < 5 }) else { return }
+        guard !values.contains(where: { $0.0.distance(from: location) < 1 }) else { return }
 
         fetcher.fetchData(for: location) { [weak self] in
             if let value = $0 {
