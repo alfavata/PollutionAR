@@ -54,7 +54,7 @@ class ParticleNode: LocationAnnotationNode {
         super.init(location: location, image: .withValue(value))
         scaleRelativeToDistance = true
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

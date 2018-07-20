@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00B16C6621027733004FC108 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B16C6521027733004FC108 /* Double.swift */; };
 		0C26DBD8208DDFFE00F0E454 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C26DBD7208DDFFE00F0E454 /* AppDelegate.swift */; };
 		0C26DBDA208DDFFE00F0E454 /* Scene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0C26DBD9208DDFFE00F0E454 /* Scene.sks */; };
 		0C26DBDC208DDFFE00F0E454 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C26DBDB208DDFFE00F0E454 /* Scene.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00B16C6521027733004FC108 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		0C26DBD4208DDFFE00F0E454 /* PollutionAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PollutionAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C26DBD7208DDFFE00F0E454 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C26DBD9208DDFFE00F0E454 /* Scene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scene.sks; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				0C731BF0208DF8CC00682D89 /* ParticleNode.swift */,
 				0C731BF2208E1E0300682D89 /* smoke.png */,
 				0C731BF3208E1E0300682D89 /* Pollution.scnp */,
+				00B16C6521027733004FC108 /* Double.swift */,
 			);
 			path = PollutionAR;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				0C26DBD8208DDFFE00F0E454 /* AppDelegate.swift in Sources */,
 				0C731BED208DF01D00682D89 /* Model.swift in Sources */,
 				0C731BF1208DF8CC00682D89 /* ParticleNode.swift in Sources */,
+				00B16C6621027733004FC108 /* Double.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

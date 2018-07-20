@@ -5,7 +5,7 @@ DEPENDENCIES:
   - ARCL
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - ARCL
 
 SPEC CHECKSUMS:
@@ -13,4 +13,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: ba63c05a281aed718e8aa6250d9e2769dd02603d
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.2
