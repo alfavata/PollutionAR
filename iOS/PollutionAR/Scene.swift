@@ -10,40 +10,38 @@ import SpriteKit
 import ARKit
 
 class Scene: SKScene {
-    
+
+    //consider having a constants file and a strings file.
+    static let smokeParticleName = "Smoke"
+    static let cameraTranslation = Float(exactly: -0.2)!
+
+    let smokePath = Bundle.main.path(forResource: Scene.smokeParticleName, ofType: "sks")
+
     override func didMove(to view: SKView) {
-        self.backgroundColor = UIColor.black
+        backgroundColor = UIColor.black
 
-        let path = Bundle.main.path(forResource: "Smoke", ofType: "sks")
-        let particle = NSKeyedUnarchiver.unarchiveObject(withFile: path!) as! SKEmitterNode
+        let particle = NSKeyedUnarchiver.unarchiveObject(withFile: smokePath!) as! SKEmitterNode
+        particle.position = CGPoint(x: size.width/2, y: size.height)
+        particle.name = Scene.smokeParticleName
+        particle.targetNode = scene
 
-        particle.position = CGPoint(x: self.size.width/2, y: self.size.height)
-        particle.name = "Smoke"
-        particle.targetNode = self.scene
-
-        self.addChild(particle)
+        addChild(particle)
     }
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-    }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let sceneView = self.view as? ARSKView else {
+        guard let sceneView = view as? ARSKView else {
             return
         }
-        
+
         // Create anchor using the camera's current position
         if let currentFrame = sceneView.session.currentFrame {
-            
             // Create a transform with a translation of 0.2 meters in front of the camera
             var translation = matrix_identity_float4x4
-            translation.columns.3.z = -0.2
+            translation.columns.3.z = Scene.cameraTranslation
             let transform = simd_mul(currentFrame.camera.transform, translation)
-            
+
             // Add a new anchor to the session
-            let anchor = ARAnchor(transform: transform)
-            sceneView.session.add(anchor: anchor)
+            sceneView.session.add(anchor: ARAnchor(transform: transform))
         }
     }
 }
